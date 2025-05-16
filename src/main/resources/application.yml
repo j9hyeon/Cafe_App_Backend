@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/cafe_db?serverTimezone=Asia/Seoul
+    username: root
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: update     # 개발 중엔 update, 운영에선 validate or none
+    show-sql: true         # 콘솔에 SQL 출력
+    properties:
+      hibernate:
+        format_sql: true   # SQL 예쁘게 출력
+
+server:
+  port: 8080               # 기본 포트
