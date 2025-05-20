@@ -12,13 +12,14 @@ public class SeatDataInitializer {
     @Bean
     public CommandLineRunner initSeats(SeatRepository seatRepository) {
         return args -> {
-            if (seatRepository.count() == 0) {
-                seatRepository.save(new Seat(null, "A1", false));
-                seatRepository.save(new Seat(null, "A2", false));
-                seatRepository.save(new Seat(null, "B1", false));
-                seatRepository.save(new Seat(null, "B2", false));
-                System.out.println("✅ 좌석 초기 데이터 삽입 완료");
-            }
+            seatRepository.deleteAll(); // 👈 전체 삭제
+            seatRepository.save(new Seat(null, "A1", false));
+            seatRepository.save(new Seat(null, "A2", false));
+            seatRepository.save(new Seat(null, "B1", false));
+            seatRepository.save(new Seat(null, "B2", false));
+            seatRepository.save(new Seat(null, "C1", false));
+            seatRepository.save(new Seat(null, "C2", false));
+            System.out.println("✅ 좌석 초기화 완료");
         };
     }
 }
